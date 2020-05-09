@@ -4,8 +4,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @RestController
@@ -19,5 +21,9 @@ public class SpringRestApplication {
     public String hello() {
         logger.info("Root is accessed");
         return "Hello World and Hello Spring-Boat";
+    }
+    @Bean
+    public RestTemplate restTemplate(){
+	    return new RestTemplate();
     }
 }
